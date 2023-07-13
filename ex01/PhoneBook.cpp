@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orakib <orakib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 08:23:31 by orakib            #+#    #+#             */
-/*   Updated: 2023/07/13 17:56:47 by orakib           ###   ########.fr       */
+/*   Created: 2023/07/13 13:42:29 by orakib            #+#    #+#             */
+/*   Updated: 2023/07/13 17:59:39 by orakib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
+#include "PhoneBook.hpp"
 
-# define PHONEBOOK_H
+int	PhoneBook::addc(int index)
+{
+	std::string	str;
 
-# include <iostream>
-# include <string>
-# include "Contact.hpp"
-
-class	PhoneBook {
-	private:
-		Contact	c_arr[8];
-	public:
-		int	addc(int index);
-		int	searchc(void);
-		int	exitc(void);
-};
-
-#endif
+	std::cout << "Enter first name : ";
+	std::cin >> str;
+	this->c_arr[]
+}

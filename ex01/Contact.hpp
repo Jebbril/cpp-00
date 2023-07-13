@@ -6,7 +6,7 @@
 /*   By: orakib <orakib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:34:49 by orakib            #+#    #+#             */
-/*   Updated: 2023/07/12 17:36:58 by orakib           ###   ########.fr       */
+/*   Updated: 2023/07/13 14:44:33 by orakib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class	Contact {
 		std::string	phone;
 		std::string	d_secret;
 	public:
+		Contact();
+		~Contact();
 		std::string get_fname(void);
 		std::string get_lname(void);
 		std::string get_nname(void);

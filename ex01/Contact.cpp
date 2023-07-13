@@ -6,11 +6,25 @@
 /*   By: orakib <orakib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 16:58:11 by orakib            #+#    #+#             */
-/*   Updated: 2023/07/12 17:16:35 by orakib           ###   ########.fr       */
+/*   Updated: 2023/07/13 14:24:19 by orakib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact()
+{
+	this->f_name = "";
+	this->l_name = "";
+	this->n_name = "";
+	this->phone = "";
+	this->d_secret = "";
+}
+
+Contact::~Contact()
+{
+	return ;
+}
 
 std::string	Contact::get_fname()
 {
