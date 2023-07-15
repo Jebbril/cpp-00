@@ -17,6 +17,8 @@ int	main()
 	while (1) {
 		std::cout << "Enter a command : ";
 		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (0);
 		while (str[0] == 0) {
 			std::cout << "Enter a command : ";
 			std::getline(std::cin, str);
