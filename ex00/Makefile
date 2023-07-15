@@ -6,7 +6,7 @@
 #    By: orakib <orakib@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 17:19:25 by orakib            #+#    #+#              #
-#    Updated: 2023/07/10 17:32:50 by orakib           ###   ########.fr        #
+#    Updated: 2023/07/15 13:59:07 by orakib           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,18 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
+OBJ = $(SRC:.cpp=.o)
+
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 	
 fclean: clean
 	@rm -f $(NAME)

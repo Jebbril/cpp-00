@@ -6,25 +6,32 @@
 #    By: orakib <orakib@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 17:42:19 by orakib            #+#    #+#              #
-#    Updated: 2023/07/11 08:21:31 by orakib           ###   ########.fr        #
+#    Updated: 2023/07/15 13:56:26 by orakib           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-SRC = megaphone.cpp
+SRC = Contact.cpp main.cpp PhoneBook.cpp
+
+HEADER = PhoneBook.hpp
 
 CC = c++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
+OBJ = $(SRC:.cpp=.o)
+
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(NAME)
+	@rm -f $(OBJ)
 	
 fclean: clean
 	@rm -f $(NAME)
