@@ -45,13 +45,12 @@ void	Account::_displayTimestamp()
 
 	time(&mytime);
 	mitime = localtime(&mytime);
-	std::cout << "[" << mitime->tm_year + 1900
-		<< std::setfill('0') << std::setw(2) 
-		<< mitime->tm_mon + 1 << mitime->tm_mday 
-		<< "_";
-	std::cout << std::setfill('0') << std::setw(2)
-		<< mitime->tm_hour << mitime->tm_min 
-		<< mitime->tm_sec << "] ";
+	std::cout << "[" << mitime->tm_year + 1900;
+	std::cout << std::setfill('0') << std::setw(2) << mitime->tm_mon + 1;
+	std::cout << std::setfill('0') << std::setw(2) << mitime->tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << mitime->tm_hour;
+	std::cout << std::setfill('0') << std::setw(2) << mitime->tm_min;
+	std::cout << std::setfill('0') << std::setw(2) << mitime->tm_sec << "] ";
 }
 
 int	Account::getNbAccounts( void )

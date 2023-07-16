@@ -22,17 +22,19 @@ int	main()
 		while (str[0] == 0) {
 			std::cout << "Enter a command : ";
 			std::getline(std::cin, str);
+			if (std::cin.eof())
+				return (0);
 		}
 		if (!str.compare("ADD")) {
 			if (newbook.addc(i)) {
-				std::cerr << "You left an empty field !" << std::endl;
-				newbook.empty_contact(i);
+				return (0);
 			}
 			else
 				i++;
 		}
 		else if (!str.compare("SEARCH")) {
-			newbook.searchc();
+			if (newbook.searchc())
+				return (1);
 		}
 		else if (!str.compare("EXIT"))
 			break;

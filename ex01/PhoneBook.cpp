@@ -6,7 +6,7 @@
 /*   By: orakib <orakib@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 13:42:29 by orakib            #+#    #+#             */
-/*   Updated: 2023/07/15 13:47:01 by orakib           ###   ########.fr       */
+/*   Updated: 2023/07/16 09:38:33 by orakib           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,58 @@ int	PhoneBook::addc(int index)
 
 	std::cout << "Enter contact first name : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (1);
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter contact first name : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
 	this->c_arr[index].set_fname(str);
 	std::cout << "Enter last name : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (1);
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter last name : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
 	this->c_arr[index].set_lname(str);
 	std::cout << "Enter nickname : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (1);
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter nickname : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
 	this->c_arr[index].set_nname(str);
 	std::cout << "Enter phone : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (1);
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter phone : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
 	this->c_arr[index].set_phone(str);
 	std::cout << "Enter darkest secret : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (1);
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter darkest secret : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
 	this->c_arr[index].set_dsecret(str);
 	return (0);
 }
@@ -73,21 +103,30 @@ int	PhoneBook::searchc()
 	std::cout << "+------------+------------+------------+------------+" << std::endl;
 	std::cout << "Enter index of contact : ";
 	std::getline(std::cin, str);
-	if (!str[0])
-		return (0);
-	if (!std::isdigit(str[0]) && !str[1])
+	if (std::cin.eof())
+			return (1);
+	while (!str[0]) {
+		std::cout << "Enter index of contact : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof())
+			return (1);
+	}
+	i = -1;
+	while (str[++i]) {
+		if (!std::isdigit(str[i])) {
+			std::cerr << "Invalid index !" << std::endl;
+			return (0);
+		}
+	}
+	i = std::stoi(str);
+	if (i > 7 || !this->c_arr[i].get_fname()[0])
 		std::cerr << "Invalid index !" << std::endl;
 	else {
-		i = std::stoi(str);
-		if (i > 7 || !this->c_arr[i].get_fname()[0])
-			std::cerr << "Invalid index !" << std::endl;
-		else {
-			std::cout << "First name     : " << this->c_arr[i].get_fname() << std::endl;
-			std::cout << "Last name      : " << this->c_arr[i].get_lname() << std::endl;
-			std::cout << "Nickname       : " << this->c_arr[i].get_nname() << std::endl;
-			std::cout << "Phone          : " << this->c_arr[i].get_phone() << std::endl;
-			std::cout << "Darkest secret : " << this->c_arr[i].get_dsecret() << std::endl;
-		}
+		std::cout << "First name     : " << this->c_arr[i].get_fname() << std::endl;
+		std::cout << "Last name      : " << this->c_arr[i].get_lname() << std::endl;
+		std::cout << "Nickname       : " << this->c_arr[i].get_nname() << std::endl;
+		std::cout << "Phone          : " << this->c_arr[i].get_phone() << std::endl;
+		std::cout << "Darkest secret : " << this->c_arr[i].get_dsecret() << std::endl;
 	}
 	return (0);
 }
